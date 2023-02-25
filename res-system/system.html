@@ -21,59 +21,71 @@
                 <p>nombre d'inconues:</p>
                 <div id="inco" class="var">7</div>
                 <div class="slide">
-                    <img id="haut1" class="triangleH" src="asset/img/Polygon1.svg" alt="" width="25px">
-                    <img id="bas1" src="asset/img/Polygon2.svg" alt="" width="25px">
-                </div>
-            </div>
-            <div class="flex">
-                <p>nombre de ligne:</p>
-                <div id="line" class="var">2</div>
-                <div class="slide">
-                    <img id="haut2" class="triangleH" src="asset/img/Polygon1.svg" alt="" width="25px">
-                    <img id="bas2" src="asset/img/Polygon2.svg" alt="" width="25px">
+                    <img id="up" class="triangleH" src="asset/img/Polygon1.svg" alt="" width="25px">
+                    <img id="down" src="asset/img/Polygon2.svg" alt="" width="25px">
                 </div>
             </div>
         </section>
         <section id="matrice">
             <h2> saisie: </h2>
-            <div>
-                <input id="x1" type="number">
-                <input id="y1" type="number">
-                <input id="z1" type="number">
-                <input id="a1" type="number">
-                <input id="b1" type="number">
+            <div class="dim">
+                <div class="case name" id="X">X</div>
+                <div class="case name" id="Y">Y</div>
+                <div class="case name" id="Z">Z</div>
+                <div class="case name" id="A">A</div>
+                <div class="case name" id="B">B</div>  
             </div>
             <div>
-                <input id="x2" type="number">
-                <input id="y2" type="number">
-                <input id="z2" type="number">
-                <input id="a2" type="number">
-                <input id="b2" type="number">
+                <input class="case" id="x1" type="number">
+                <input class="case" id="y1" type="number">
+                <input class="case" id="z1" type="number">
+                <input class="case" id="a1" type="number">
+                <input class="case" id="b1" type="number">
+                <span class="case" id="equ1">=</span>
+                <input class="case" id="res1" type="number">
             </div>
             <div>
-                <input id="x3" type="number">
-                <input id="y3" type="number">
-                <input id="z3" type="number">
-                <input id="a3" type="number">
-                <input id="b3" type="number">
+                <input class="case" id="x2" type="number">
+                <input class="case" id="y2" type="number">
+                <input class="case" id="z2" type="number">
+                <input class="case" id="a2" type="number">
+                <input class="case" id="b2" type="number">
+                <span class="case" id="equ2">=</span>
+                <input class="case" id="res2" type="number">
             </div>
             <div>
-                <input id="x4" type="number">
-                <input id="y4" type="number">
-                <input id="z4" type="number">
-                <input id="a4" type="number">
-                <input id="b4" type="number">
+                <input class="case" id="x3" type="number">
+                <input class="case" id="y3" type="number">
+                <input class="case" id="z3" type="number">
+                <input class="case" id="a3" type="number">
+                <input class="case" id="b3" type="number">
+                <span class="case" id="equ3">=</span>
+                <input class="case" id="res3" type="number">
             </div>
             <div>
-                <input id="x5" type="number">
-                <input id="y5" type="number">
-                <input id="z5" type="number">
-                <input id="a5" type="number">
-                <input id="b5" type="number">
+                <input class="case" id="x4" type="number">
+                <input class="case" id="y4" type="number">
+                <input class="case" id="z4" type="number">
+                <input class="case" id="a4" type="number">
+                <input class="case" id="b4" type="number">
+                <span class="case" id="equ4">=</span>
+                <input class="case" id="res4" type="number">
             </div>
-            <button id="A">A</button>
-            <button id="B">B</button>
+            <div>
+                <input class="case" id="x5" type="number">
+                <input class="case" id="y5" type="number">
+                <input class="case" id="z5" type="number">
+                <input class="case" id="a5" type="number">
+                <input class="case" id="b5" type="number">
+                <span class="case" id="equ5">=</span>
+                <input class="case" id="res5" type="number">
+            </div>
             <button id="button1">valider</button>
+        </section>
+        <section id="results">
+            <div class="case" id="res">
+                
+            </div>
         </section>
     </main>
 </body>

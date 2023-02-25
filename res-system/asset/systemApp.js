@@ -4,110 +4,119 @@ function FoncSaisie() {
   console.log(saisie);
   alert("saisie" + saisie);
 }
-function Cacher() {
-  document.getElementById("z1").style.visibility = "collapse";
-  document.getElementById("z2").style.visibility = "collapse";
-  document.getElementById("z3").style.visibility = "collapse";
-  document.getElementById("z4").style.visibility = "collapse";
-  document.getElementById("z5").style.visibility = "collapse";
-  document.getElementById("a1").style.visibility = "collapse";
-  document.getElementById("a2").style.visibility = "collapse";
-  document.getElementById("a3").style.visibility = "collapse";
-  document.getElementById("a4").style.visibility = "collapse";
-  document.getElementById("a5").style.visibility = "collapse";
-  document.getElementById("b1").style.visibility = "collapse";
-  document.getElementById("b2").style.visibility = "collapse";
-  document.getElementById("b3").style.visibility = "collapse";
-  document.getElementById("b4").style.visibility = "collapse";
-  document.getElementById("b5").style.visibility = "collapse";
-  document.getElementById("x3").style.visibility = "collapse";
-  document.getElementById("x4").style.visibility = "collapse";
-  document.getElementById("x5").style.visibility = "collapse";
-  document.getElementById("y3").style.visibility = "collapse";
-  document.getElementById("y4").style.visibility = "collapse";
-  document.getElementById("y5").style.visibility = "collapse";
-}
-function MontereZ() {
-  document.getElementById("z1").style.visibility = "visible";
-  document.getElementById("z2").style.visibility = "visible";
-  document.getElementById("z3").style.visibility = "visible";
-  document.getElementById("z4").style.visibility = "visible";
-  document.getElementById("z5").style.visibility = "visible";
-}
-function TestShow() {
-  if (nbInco == 3 && nbLine == 2) {
-    document.getElementById("z1").style.visibility = "visible";
-    document.getElementById("z2").style.visibility = "visible";
-  } else if (nbInco == 2 && nbLine == 3) {
-    document.getElementById("x3").style.visibility = "visible";
-    document.getElementById("y3").style.visibility = "visible";
-  } else if (nbInco == 3 && nbLine == 3) {
-    document.getElementById("z1").style.visibility = "visible";
-    document.getElementById("z2").style.visibility = "visible";
-    document.getElementById("x3").style.visibility = "visible";
-    document.getElementById("y3").style.visibility = "visible";
-    document.getElementById("z3").style.visibility = "visible";
-  } else if (nbInco == 4 && nbLine == 2) {
-    document.getElementById("z1").style.visibility = "visible";
-    document.getElementById("z2").style.visibility = "visible";
-    document.getElementById("x3").style.visibility = "visible";
-    document.getElementById("y3").style.visibility = "visible";
-    document.getElementById("z3").style.visibility = "visible";
+
+function Hidden(tab) {
+  for (let i = 0; i < tab.length; i++) {
+    document.getElementById(tab[i]).style.visibility = "hidden";
+    document.getElementById(tab[i]).style.position = "absolute";
   }
 }
+function Show(tab) {
+  for (let i = 0; i < tab.length; i++) {
+    document.getElementById(tab[i]).style.visibility = "visible";
+    document.getElementById(tab[i]).style.position = "static";
+  }
+}
+function TestShow() {
+  switch (nbInco) {
+    case 2:
+      Show(["x1", "x2", "y1", "y2", "res1", "res2", "equ1", "equ2", "X", "Y"]);
+      Hidden(["x3", "y3", "z1", "z2", "z3", "res3", "equ3", "Z"]);
+      break;
+    case 3:
+      Show(["x3", "y3", "z3", "z1", "z2", "z3", "res3", "equ3", "Z"]);
+      Hidden(["x4", "y4", "z4", "a1", "a2", "a3", "a4", "res4", "equ4", "A"]);
+      break;
+    case 4:
+      Show(["x4", "y4", "z4", "a1", "a2", "a3", "a4", "res4", "equ4", "A"]);
+      Hidden([
+        "x5",
+        "y5",
+        "z5",
+        "a5",
+        "b1",
+        "b2",
+        "b3",
+        "b4",
+        "b5",
+        "res5",
+        "equ5",
+        "B",
+      ]);
+      break;
+    default:
+      Show([
+        "x5",
+        "y5",
+        "z5",
+        "a5",
+        "b5",
+        "b4",
+        "b3",
+        "b2",
+        "b1",
+        "res5",
+        "equ5",
+        "B",
+      ]);
+  }
+}
+function CompleteTab() {}
+function TestComplete() {
+  switch (nbInco) {
+    case 2:
+      Show(["x1", "x2", "y1", "y2", "res1", "res2", "equ1", "equ2"]);
+      break;
+    case 3:
+      Show(["x3", "y3", "z3", "z1", "z2", "z3", "res3", "equ3", "Z"]);
+      break;
+    case 4:
+      Show(["x4", "y4", "z4", "a1", "a2", "a3", "a4", "res4", "equ4", "A"]);
+      break;
+    default:
+      Show([
+        "x5",
+        "y5",
+        "z5",
+        "a5",
+        "b4",
+        "b3",
+        "b2",
+        "b1",
+        "res5",
+        "equ5",
+        "B",
+      ]);
+  }
+}
+
 /***************************************************************************** */
 var resoudre = document.getElementById("button1");
 var inco = document.getElementById("inco");
-var line = document.getElementById("line");
 var nbInco = 2;
 var nbLine = 2;
-var haut1 = document.getElementById("haut1");
-var bas1 = document.getElementById("bas1");
-var haut2 = document.getElementById("haut2");
-var bas2 = document.getElementById("bas2");
-
-resoudre.addEventListener("click", FoncSaisie);
+var up = document.getElementById("up");
+var down = document.getElementById("down");
+var button1 = document.getElementById("button1");
 inco.innerHTML = nbInco;
-line.innerHTML = 18;
-Cacher();
-haut1.addEventListener("click", function () {
+
+up.addEventListener("click", function () {
   if (nbInco != 5) {
     nbInco++;
     inco.innerHTML = nbInco;
-    Cacher();
     TestShow();
   }
 });
-bas1.addEventListener("click", function () {
+down.addEventListener("click", function () {
   if (nbInco != 2) {
     nbInco--;
     inco.innerHTML = nbInco;
-    Cacher();
     TestShow();
   }
 });
-haut2.addEventListener("click", function () {
-  if (nbLine != 5) {
-    nbLine++;
-    line.innerHTML = nbLine;
-    Cacher();
-    TestShow();
-  }
-});
-bas2.addEventListener("click", function () {
-  if (nbLine != 2) {
-    nbLine--;
-    line.innerHTML = nbLine;
-    Cacher();
-    TestShow();
-  }
-});
+TestShow();
 
-var x5 = document.getElementById("x5");
-
-document.getElementById("A").addEventListener("click", function () {
-  x5.style.visibility = "collapse";
+button1.addEventListener("click", function () {
+  alert("la dim est -> " + nbInco);
 });
-document.getElementById("B").addEventListener("click", function () {
-  x5.style.visibility = "visible";
-});
+document.writeln("<p>Entrez votre mot de passe :</p>");
